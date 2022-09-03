@@ -2,26 +2,555 @@
 import Layout from '../layouts/Layout.astro';
 import Countdown from '../components/Countdown.svelte';
 import Speakers from '../components/Speakers.svelte';
+
+let buildings = [
+	{
+		"image": "/img/panel.jpg",
+		"name": "Panel Discussions"
+	},
+	{
+		"image": "/img/keynote.jpg",
+		"name": "Keynote Sessions"
+	},
+	{
+		"image": "/img/leadership.jpg",
+		"name": "Leadership Talks"
+	},
+	{
+		"image": "/img/expo.jpg",
+		"name": "Startup Exhibition"
+	}
+];
+
+let partners = [
+  {
+    "image": "/img/startupindia.png",
+    "label": "National Partner"
+  },
+  {
+    "image": "/img/london.jpg",
+    "label": "International Partner"
+  },
+  {
+    "image": "/img/stplit.png",
+    "label": "International Partner"
+  },
+  {
+    "image": "/img/aws-intel.jpg",
+    "label": "Platinum Partner"
+  },
+  {
+    "image": "/img/hitachi.png",
+    "label": "Innovation Partner"
+  },
+  {
+    "image": "/img/adif.jpg",
+    "label": "Ecosystem Partner"
+  },
+  {
+    "image": "/img/isba.png",
+    "label": "Ecosystem Partner"
+  },
+  {
+    "image": "/img/inq.png",
+    "label": "Global Ecosystem & Market Access Partner"
+  },
+  {
+    "image": "/img/gtech.png",
+    "label": "Outreach Partner"
+  },
+  {
+    "image": "/img/csl.jpg",
+    "label": "Global Market Access Partner"
+  },
+  {
+    "image": "/img/freshworks.jpeg",
+    "label": "Supporting Partner"
+  }
+];
+
+let attend = [
+    {
+      "image": "/img/startup.png",
+      "name": "Startups",
+      "content": "Huddle India is built for entrepreneur’s. Whether you are looking for investors, customers, media exposure or mentoring"
+    },
+    {
+      "image": "/img/investor.png",
+      "name": "Investors",
+      "content": "Get access to many start-ups with verified projects. Share your interests with us and prebook meetings with startups, other investors and executives."
+    },
+    {
+      "image": "/img/students.png",
+      "name": "Academia",
+      "content": "We love innovation and science, and we show it by providing several opportunities for academics, post docs, professors, researchers etc."
+    },
+    {
+      "image": "/img/industry.png",
+      "name": "Industries",
+      "content": "Huddle India is a great opportunity for Industry to discover new talents, business partners and Network with people that matters."
+    }
+  ];
+
+let stats = [
+    {
+      "count": "70",
+      "symbol": "+",
+      "text": "Corporates"
+    },
+    {
+      "count": "30",
+      "symbol": "+",
+      "text": "Speakers"
+    },
+    {
+      "count": "50",
+      "symbol": "+",
+      "text": "Exhibitors"
+    },
+    {
+      "count": "30",
+      "symbol": "+",
+      "text": "Mentors"
+    }
+  ];
+
+
 ---
 
+<style is:global>
+	@import '../../node_modules/plyr/dist/plyr.css';
+</style>
+
+<style lang="scss">
+
+	.side_title {
+		text-align: center;
+		text-orientation: sideways;
+		writing-mode: vertical-lr;
+		transform: rotate(180deg);
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 7px;
+		font-size: .75rem;
+
+		span{
+			color: rgba(0,0,0,.3);
+		}
+	}
+
+</style>
+
 <Layout  title="Kerala Startup Mission">
-	<main class="py-24 min-h-screen flex flex-col items-center justify-center" >
-		<div class="absolute -z-10 w-full h-full top-0 left-0 bg-black bg-opacity-70"></div>
-  	<div class="absolute -z-20 bg-cover bg-center bg-no-repeat w-full h-full top-0 left-0" style="background-image:url('/img/bg.jpeg')"></div>  
 
-		<div class="container mx-auto text-white text-center">
+	<section class="flex w-full min-h-screen bg-black">
+    <div class="flex-col hidden w-24 bg-white md:flex">
+      <div class="w-full h-24 bg-blue-500 square"></div>
+      <div class="flex items-center justify-center h-full side-section">
+        <h1 class="side_title">Welcome to <span>Huddle Global 2022</span></h1>
+      </div>
+    </div>
+    <div class="relative w-full">
+      <div class="text-white main-slider">
+        <div class="min-h-screen bg-cover" style="background-image: url('/img/bg9.jpg')"></div>
+        <div class="min-h-screen bg-cover" style="background-image: url('/img/bg6.jpg')"></div>
+        <div class="min-h-screen bg-cover" style="background-image: url('/img/bg7.jpg')"></div>
+        <div class="min-h-screen bg-cover" style="background-image: url('/img/bg8.jpg')"></div>
+      </div>
 
-			<!-- <h1>Kerala Startup Mission</h1> -->
+      <div class="absolute px-5 transform sm:-translate-y-1/2 sm:pl-12 top-10 sm:top-1/2">
+        <h1 class="text-4xl font-black text-center text-white sm:text-left">Get Ready for</h1>
+        <img src="/img/huddle_white.svg" class="h-40 mx-auto sm:h-56 sm:mx-0" alt="Logo">
+        <h2 class="text-3xl text-center text-white sm:text-left">India's Most Coveted Startup Conclave</h2>
+        <div class="flex flex-col items-center justify-center mt-8 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-start">
+          
+          <button class="flex items-center space-x-2 group youtube-button" >
+            <div class="flex items-center justify-center w-16 h-16 transition bg-white border-2 border-white rounded-full group-hover:text-white group-hover:bg-transparent" >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 icon icon-tabler icon-tabler-player-play" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M7 4v16l13 -8z"></path>
+              </svg>
+            </div>
+            <div class="font-bold text-white">Our Highlights</div>
+          </button>
 
-			<Countdown date="2022-09-23T09:00" client:load ></Countdown>
+          <!-- <a href="#" class="px-4 py-2 font-medium text-white bg-blue-500 border-2 border-blue-500 hover:bg-transparent hover:text-white font-xl">
+            Partner With Us
+          </a> -->
 
-		</div>
+          <!-- <a target="_blank" href="https://forms.zohopublic.com/keralastartupmission/form/HuddleGlobal2021StartupExpo/formperma/9rsGEdhETa2tA9Doz_ANhKJA2ik0qegfWGPd5BYU0dM" class="px-4 py-2 font-medium text-white bg-blue-500 border-2 border-blue-500 hover:bg-transparent hover:text-white font-xl">
+            Exhibit @ Huddle
+          </a> -->
+          
+          <button target="_blank" onclick="popup('huddle-global-2022-343210');" class="px-4 py-2 font-medium text-white bg-blue-500 border-2 border-blue-500 hover:bg-transparent hover:text-white font-xl">
+            Get Tickets
+          </button>
+
+        </div>
+      </div>
+
+      <div class="absolute w-full px-2 bg-blue-500 bottom-10 md:w-auto md:bottom-0 md:right-0 countdown-block" data-countdown="2022-12-15T09:00" >
+        <div class="pt-3 text-xl font-bold text-center text-white">
+          Join Us in
+        </div>
+        <div id="countdown-container" class="flex flex-wrap items-center justify-center ">
+          <div class="flex flex-col items-center justify-center px-3 py-3 text-center " >
+            <div class="px-3 py-3 mb-2 text-xl font-bold bg-white shadow md:py-4 md:text-4xl font-heading" data-day >00</div>
+            <div class="text-xs font-medium text-white">Days</div>
+          </div>
+          <div class="flex flex-col items-center justify-center px-3 py-3 text-center " >
+            <div class="px-3 py-3 mb-2 text-xl font-bold bg-white shadow md:py-4 md:text-4xl font-heading" data-hour>00</div>
+            <div class="text-xs font-medium text-white">Hours</div>
+          </div>
+          <div class="flex flex-col items-center justify-center px-3 py-3 text-center " >
+            <div class="px-3 py-3 mb-2 text-xl font-bold bg-white shadow md:py-4 md:text-4xl font-heading" data-minutes>00</div>
+            <div class="text-xs font-medium text-white">Minutes</div>
+          </div>
+          <div class="flex flex-col items-center justify-center px-3 py-3 text-center " >
+            <div class="px-3 py-3 mb-2 text-xl font-bold bg-white shadow md:py-4 md:text-4xl font-heading" data-seconds>00</div>
+            <div class="text-xs font-medium text-white">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--- 
+	<section class="px-5 pt-24">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/3">
+          <div class="absolute w-32 h-32 bg-blue-500 square -z-10"></div>
+          <div class="relative mt-10 ml-10 border-white shadow-lg">
+            <img src="/img/about-img.png" alt="KSUM" >
+          </div>
+        </div>
+        <div class="pt-20 md:w-2/3">
+          <div class="pb-10 md:px-20">
+            <div class="mb-2 text-sm font-bold text-yellow-600 uppercase">Welcome</div>
+            <div class="mb-5 text-3xl font-black">About Us</div>
+            <div class="space-y-2 text-justify text-gray-700">
+              <p>Kerala popularly known as “Gods Own Country” is coming up with the Third Edition of HUDDLE as HUDDLE GLOBAL, one of the most coveted events in Tech Startup Ecosystem in India</p>
+              <p>Huddle is the focal point for tech start-ups and other relevant stakeholders of the entrepreneurial ecosystem including the government, investors, mentors, industry etc.</p>
+              <p>Huddle Global 2022 will see the collaboration initiatives and partnership kick offs of KSUM and the related startups with different global stakeholders of the ecosystem. Through Huddle Global 2022 KSUM aims to position itself as one among the upcoming startups ecosystem facilitator in the global scenario.</p>
+            </div>
+          </div>
+          <div class="px-8 py-5 bg-blue-500 md:inline-block square">
+            <div class="text-2xl font-bold text-white">Global Tech Concalve</div>
+          </div>
+            
+        </div>
+      </div>
+      
+    </div>
+  </section>
+-->
+
+  <section class="">
+    <div id="building-slider" class="flex flex-col md:flex-row">
+
+      {buildings.map((item) => (
+        <div class="md:w-1/4 group ">
+          <div class="relative">
+            <div class="absolute w-full h-full transition duration-300 bg-black bg-opacity-50 group-hover:bg-opacity-0"></div>
+            <img src={item.image} alt="ISC" >
+            <div class="absolute px-6 py-3 text-2xl font-black text-center text-white bottom-4 group-hover:bg-blue-600">
+              {item.name}
+            </div>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </section>
+
+  <div class="fixed top-0 left-0 z-20 hidden w-full h-screen p-5 bg-black bg-opacity-50 youtube-popup backdrop-filter backdrop-blur-sm">
+    <div class="absolute flex items-center justify-center w-10 h-10 border-2 rounded-full cursor-pointer close-video top-5 right-5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white icon icon-tabler icon-tabler-x" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+    <div class="absolute w-full max-w-2xl transform -translate-x-1/2 -translate-y-1/2 bg-white left-1/2 top-1/2 video-container">
+      
+      <div id="youtube_player" data-plyr-provider="youtube" data-plyr-embed-id="FdC08mQblLY"></div>
+      
+    </div>
+  </div>
+
+<!--
+  <section class="px-5 py-24 bg-huddle">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <div class="mb-2 text-sm font-bold text-yellow-400 uppercase">Meet our speakers</div>
+        <div class="mb-10 text-4xl font-black text-white">Speakers</div>
+      </div>
+      <div id="speakers"></div>
+    </div>
+  </section>
+-->
+
+<!--
+  <section class="px-5 py-24">
+    <div class="container mx-auto">
+      <div class="text-center">
+        <div class="mb-10 text-4xl font-black ">Partners</div>
+      </div>
+      <div class="grid gap-5 md:grid-cols-5">
+
+        {partners.map((item) => (
+          <div class="p-3 rounded-md shadow-md">
+            <div class="p-2 mb-3 shadow-inner">
+              <img src={item.image} alt="Partner logo">
+            </div>
+            <div class="text-sm font-bold text-center">
+              {item.label}
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </section>
+-->
+
+  <section class="px-5 py-24">
+    <div class="container mx-auto">
+
+      <div class="text-center">
+        <div class="mb-2 text-sm font-bold text-yellow-600 uppercase">Get ready to Huddle</div>
+        <div class="mb-5 text-3xl font-black">Who should attend?</div>
+      </div>
+
+      <div class="flex flex-col items-center justify-center md:flex-row">        
+
+        {attend.map((item) => (
+          <div class="w-full p-3 md:w-1/4 group">
+            <div class="relative">
+              <div class="absolute w-full h-full transition duration-300 bg-black bg-opacity-50 group-hover:bg-opacity-0"></div>
+              <img src={item.image} alt="ISC" >
+              <div class="absolute px-6 py-3 text-2xl font-black text-center text-white bottom-4 group-hover:bg-blue-600">
+                {item.name}
+              </div>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </section>
+
+  <section class="px-5 py-24 bg-huddle">
+    <div class="container relative mx-auto">
+      <div class="mb-20 text-center">
+        <p class="mb-3 text-lg text-yellow-400 ">Numbers speak a million words</p>
+        <h1 class="text-5xl font-black text-white">Our Statistics</h1>
+      </div>
+      <img src="/img/dots.svg" alt="dots" class="absolute w-20 opacity-25 top-2 left-2">
+      <img src="/img/dots.svg" alt="dots" class="absolute w-20 opacity-25 bottom-2 right-2">
+
+      <div class="flex flex-wrap">
+
+        {stats.map((item) => (
+          <div class="w-1/2 p-3 pb-10 text-center text-white md:pb-20 md:w-1/4">
+            <div class="flex justify-center">
+              <div class="text-5xl font-black text-white md:text-8xl">{item.count}</div>
+              <div class="mb-3 text-2xl text-white md:text-5xl">{item.symbol}</div>
+            </div>
+            <div class="text-center text-yellow-300 uppercase md:text-2xl">{item.text}</div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </section>
+
+  <section class="px-5 py-24 bg-black bg-cover" style="background-image: url('/img/register1.jpg')">
+    <div class="container mx-auto text-center">
+      <div class="mb-10">
+        <h1 class="mb-3 text-3xl font-black text-white">Register Now</h1>
+        <p class="text-lg text-yellow-400">Join us for a powerpacked two day conference</p>
+      </div>
+      <div class="text-center">
+        <a target="_blank" onclick="popup('huddle-global-2022-343210');" class="px-5 py-3 font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-700">Book Your Ticket</a>
+      </div>
+    </div>
+  </section>
+  
+<!--- 
+  <button id="selfie" class="fixed w-40 h-40 bottom-4 animate-pulse right-4 md:top-1/2">
+    <img src="/img/selfie.svg" >
+  </button>
+-->
+
+  <div id="booth" class="fixed z-10 hidden w-full max-w-2xl p-5 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+    <div id="close_booth" class="absolute top-0 right-0 flex items-center justify-center w-10 h-10 text-black bg-white rounded-full shadow cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+    <div class="relative p-5 bg-white rounded-md shadow-lg">
+      <div class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" id="camera_loading">
+        <svg class="w-5 h-5 mr-3 -ml-1 text-blue-500 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+      <div class="mb-5">
+        <video id="video"  style="display: none;"></video>
+        <canvas id="canvas" width="640" height="640" style="max-width: 100%"></canvas>
+      </div>
+      <button id="generate" class="px-5 py-2 text-white bg-green-600 rounded-full">Take a Snap</button>
+    </div>
+  </div>
+
+<!--
+  <div id="output" class="fixed top-0 left-0 z-20 hidden w-full h-screen bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm">
+    <div id="close_output" class="absolute flex items-center justify-center w-10 h-10 text-white border-2 border-white rounded-full top-5 right-5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+
+    <div class="absolute w-full max-w-xl p-3 pb-10 transform -translate-x-1/2 -translate-y-1/2 bg-white -rotate-6 top-1/2 left-1/2">
+      <img src="/img/huddle-photo-booth.png" >
+    </div>
+
+    <div class="absolute flex space-x-2 transform -translate-x-1/2 bottom-5 left-1/2">
+      <button id="save_image" class="hidden px-5 py-2 text-white bg-green-600 rounded-full">
+        Save Image
+      </button>
+      <button id="fb_share" class="hidden px-5 py-2 text-white bg-blue-600 rounded-full">
+        Share on Facebook
+      </button>
+    </div>
+    
+  </div>
+-->
+
+  <section class="px-8 py-16 sm:px-24" style="background-color: #021232;">
+    <div class="flex flex-col items-center justify-center sm:flex-row">
+      <div class="flex flex-col items-center text-center text-white">
+        <img src="/img/huddle_white.svg" alt="KSUM Logo" class="w-48">
+        <p>Point of Contact:</p>
+        <p class="text-xl font-bold">Varun G</p>
+        <p>varun@startupmission.in</p>
+      </div>
+    </div>
+  </section>
+  <section class="p-5 text-center text-white" style="background-color: #010b1d;">
+    Copyright © 2021 Kerala Startup Mission. All Rights Reserved.
+  </section>
+
+	<script>
 		
-	</main>
+		import Plyr from 'plyr';
+		var player = new Plyr("#youtube_player");
 
-	<section class="py-24">
-		<div class="container mx-auto">
-			<Speakers client:load></Speakers>
-		</div>
-	</section>
+		document.querySelector('.youtube-button').addEventListener('click', function () {
+			document.querySelector('.youtube-popup').classList.remove('hidden');
+			player.play();
+		});
+	
+		document.querySelector('.close-video').addEventListener('click', function () {
+			document.querySelector('.youtube-popup').classList.add('hidden');
+			player.stop();
+		});
+
+	</script>
+
+	<script>
+		function initCounter() {
+			var counter = document.querySelector('[data-countdown]');
+			
+			const countDate = new Date(counter.getAttribute('data-countdown')).getTime();
+
+			const daySelector = counter.querySelector('[data-day]');
+			const hourSelector = counter.querySelector('[data-hour]');
+			const minutesSelector = counter.querySelector('[data-minutes]');
+			const secondsSelector = counter.querySelector('[data-seconds]');
+
+			var interval = setInterval(moveTimer, 1000);
+
+			function moveTimer(){
+
+				const now = new Date().getTime();
+
+				const gap = countDate - now;
+
+				// console.log(gap);
+
+				if(gap < 0){
+					callback()
+				}
+
+				const second = 1000;
+				const minute = second * 60;
+				const hour = minute * 60;
+				const day = hour * 24;
+
+				const textDay = Math.floor(gap / day);
+				const textHour = Math.floor((gap % day) / hour);
+				const textMin = Math.floor((gap % hour) / minute);
+				const textSec = Math.floor((gap % minute) / second);
+
+				daySelector.innerText = textDay.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+				hourSelector.innerText = textHour.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+				minutesSelector.innerText = textMin.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+				secondsSelector.innerText = textSec.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+
+			}
+
+			function callback(){
+				clearInterval(interval);
+				
+			}
+		}
+
+		initCounter();
+	</script>
+
+	<script >
+
+		import { tns } from 'tiny-slider/src/tiny-slider';
+
+		window.addEventListener('DOMContentLoaded', (event) => {
+			var slider = tns({
+				container: '.main-slider',
+				items: 1,
+				mode: 'gallery',
+				animateIn: 'animate__zoomIn',
+				animateOut: 'animate__zoomOut',
+				controls: false,
+				autoplay: true,
+				nav: false,
+				autoplayButtonOutput: false,
+			});
+		});
+
+	</script>
+
+	<script>
+		window.addEventListener("scroll", function() {
+			if (window.scrollY > 100) {
+				document.querySelector("#navbar").classList.add('md:bg-indigo-900')
+				document.querySelector("#navbar img").classList.add('sm:block')
+			} else {
+				document.querySelector("#navbar").classList.remove('md:bg-indigo-900')
+				document.querySelector("#navbar img").classList.remove('sm:block')
+
+			}
+		}, false);
+
+	</script>
+
+  <noscript id="tsNoJsMsg" is:inline>Javascript on your browser is not enabled.</noscript>
+  <script is:inline src="https://www.townscript.com/static/Bookingflow/js/townscript-widget.nocache.js" type="text/javascript"></script>
+
 </Layout>
+

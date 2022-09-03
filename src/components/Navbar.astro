@@ -1,28 +1,41 @@
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="/" class="flex items-center">
-        <img src="/img/logo.svg" alt="Logo" class="h-14">
-    </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
-      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto absolute md:relative top-16 md:top-0 left-0" id="navbar-default">
-      <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
-        </li>
-        
-      </ul>
-    </div>
+<div id="navbar" :class="[main_menu?'menu-open':'']"  class="fixed top-0 left-0 z-10 w-64 min-h-screen p-8 px-32 transition-all duration-300 ease-in-out transform -translate-x-full bg-indigo-900 sm:w-full sm:min-h-0 sm:h-20 sm:py-3 sm:flex sm:items-center sm:justify-between sm:translate-x-0 md:bg-transparent ">
+  
+  <div class="flex items-center justify-center p-5 mb-5 font-medium bg-white rounded-md sm:m-0 sm:bg-transparent sm:p-0">
+    <img src="/img/huddle_white.svg" class="hidden sm:h-16" alt="Logo">
   </div>
-</nav>
+
+  <nav>
+    <ul class="sm:flex md:text-sm text-white">
+
+      <li class="">
+        <a href="/" class="px-4 py-1 text-lg font-bold uppercase text-huddle hover:text-yellow-400">Home</a>
+      </li>
+
+      <li class="">
+        <a href="https://2019.huddleglobal.co.in" target="_blank" class="px-4 py-1 text-lg font-bold uppercase text-huddle hover:text-yellow-400">Previous Edition</a>
+      </li>
+
+    </ul>
+  </nav>
+
+</div>
+
+<div class="flex p-3 bg-white shadow sm:hidden">        
+  <img src="/img/logo.svg" alt="Logo" class="object-contain h-12">
+  <button  class="fixed block w-10 h-10 px-2 py-1 ml-auto text-xl leading-none transition duration-150 bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer right-5 hover:shadow lg:hidden focus:outline-none" type="button">
+    <span class="block absolute w-6 h-0.5 rounded-sm bg-gray-600 top-3 duration-500" :class="[main_menu?'opacity-0':'']"></span>
+    <span class="block absolute w-6 h-0.5 rounded-sm bg-gray-600 duration-500" :class="[main_menu?'transform rotate-45':'']"></span>
+    <span class="block absolute w-6 h-0.5 rounded-sm bg-gray-600 duration-500" :class="[main_menu?'transform -rotate-45':'']"></span>
+    <span class="block absolute w-6 h-0.5 rounded-sm bg-gray-600 bottom-2.5 duration-500" :class="[main_menu?'opacity-0':'']"></span>
+  </button>
+</div>
+
 
 <script>
-  var button = document.querySelector('[data-collapse-toggle="navbar-default"]')
-  var target = button.getAttribute('data-collapse-toggle');
+  // var button = document.querySelector('[data-collapse-toggle="navbar-default"]')
+  // var target = button.getAttribute('data-collapse-toggle');
 
-  document.addEventListener('click', function(){
-    document.getElementById(target).classList.toggle('hidden');
-  });
+  // document.addEventListener('click', function(){
+  //   document.getElementById(target).classList.toggle('hidden');
+  // });
 </script>
